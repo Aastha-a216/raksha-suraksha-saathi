@@ -15,8 +15,11 @@ import {
   AlertTriangle,
   CheckCircle,
   TrendingUp,
-  Heart
+  Heart,
+  GraduationCap
 } from "lucide-react";
+import nccEmblem from "@/assets/ncc-emblem.jpg";
+import collegeLogo from "@/assets/college-logo.jpg";
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -38,6 +41,24 @@ const Index = () => {
     // Slide 1: Title Slide
     <PresentationSlide key={0} background="gradient">
       <div className="text-center text-white">
+        {/* Header with logos */}
+        <div className="flex justify-between items-center mb-8">
+          <div className="flex items-center gap-4">
+            <img src={nccEmblem} alt="NCC Emblem" className="w-16 h-16 object-contain" />
+            <div className="text-left">
+              <p className="text-sm font-semibold">National Cadet Corps</p>
+              <p className="text-xs text-white/80">Unity & Discipline</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <p className="text-sm font-semibold">United College of Engineering & Research</p>
+              <p className="text-xs text-white/80">Allahabad</p>
+            </div>
+            <img src={collegeLogo} alt="College Logo" className="w-16 h-16 object-contain rounded-lg" />
+          </div>
+        </div>
+
         <div className="flex justify-center mb-8">
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-6">
             <Shield className="w-16 h-16 text-white" />
@@ -45,10 +66,28 @@ const Index = () => {
         </div>
         <h1 className="text-6xl font-bold mb-4">Raksha Bandhan</h1>
         <h2 className="text-4xl font-semibold mb-6 text-white/90">Suraksha App</h2>
-        <p className="text-xl mb-8 text-white/80 max-w-3xl mx-auto">
-          A comprehensive women's safety innovation combining mobile technology, 
-          offline trigger devices, and NCC cadet-led rapid response units
+        <p className="text-xl mb-6 text-white/80 max-w-4xl mx-auto">
+          A comprehensive women's safety mobile application with Arduino-based emergency trigger devices, 
+          real-time location tracking, SMS alerts, and NCC cadet-led rapid response units for enhanced security in semi-urban and rural areas.
         </p>
+        
+        {/* Cadet Information */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+          <h3 className="text-lg font-semibold mb-3">Innovation Team</h3>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p><strong>NCC Cadets:</strong></p>
+              <p>• Astha Singh</p>
+              <p>• Astha Srivastava</p>
+            </div>
+            <div>
+              <p><strong>NCC Unit:</strong> 1UPCTR</p>
+              <p><strong>NCC Group HQ:</strong> Prayagraj</p>
+              <p><strong>NCC Directorate:</strong> UP Dte (Lucknow)</p>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-center gap-4">
           <Badge variant="secondary" className="text-lg px-4 py-2">
             Innovation 2025
@@ -99,37 +138,47 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 3: Solution Overview
+    // Slide 3: Solution Overview & App Description
     <PresentationSlide key={2} background="white">
       <div className="text-center">
-        <h1 className="text-5xl font-bold mb-8">Our Solution</h1>
-        <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-          A community-driven safety ecosystem that empowers women through technology 
-          and NCC cadet support networks
-        </p>
+        <h1 className="text-5xl font-bold mb-8">Raksha Bandhan - Suraksha App</h1>
+        
+        {/* App Description */}
+        <div className="bg-gradient-primary/10 rounded-xl p-8 mb-8 max-w-5xl mx-auto">
+          <h2 className="text-2xl font-semibold mb-4 text-primary">App Description</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A low-cost, comprehensive women's safety mobile application that combines real-time emergency alerts, 
+            GPS location tracking, and offline Arduino-based trigger devices. The app enables instant SOS alerts 
+            via SMS or data connectivity, features voice recording capabilities, and provides 'Safe Zone' navigation 
+            with NCC-verified routes and checkpoints. Designed specifically for semi-urban and rural areas where 
+            women face mobility restrictions due to safety concerns.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-semibold mb-8">Key Components</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <FeatureCard
             icon={<Smartphone className="w-12 h-12" />}
             title="Mobile App"
-            description="Emergency SOS alerts with real-time location tracking"
+            description="Emergency SOS alerts with real-time location tracking and voice recording"
             variant="default"
           />
           <FeatureCard
             icon={<Shield className="w-12 h-12" />}
-            title="Trigger Bracelet"
-            description="Arduino-based offline emergency trigger device"
+            title="Arduino Bracelet"
+            description="Offline emergency trigger device with GSM module for remote areas"
             variant="safety"
           />
           <FeatureCard
             icon={<Users className="w-12 h-12" />}
-            title="NCC Response"
-            description="Trained cadet patrol teams for immediate assistance"
+            title="NCC Suraksha Patrol"
+            description="Trained cadet teams for immediate on-ground response and assistance"
             variant="emergency"
           />
           <FeatureCard
             icon={<MapPin className="w-12 h-12" />}
-            title="Safe Zones"
-            description="NCC-verified routes and checkpoint mapping"
+            title="Safe Zone Mapping"
+            description="NCC-verified routes, checkpoints and community-driven safety networks"
             variant="default"
           />
         </div>
