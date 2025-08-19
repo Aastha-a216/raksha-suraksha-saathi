@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { PresentationSlide } from "@/components/PresentationSlide";
-import { SlideNavigation } from "@/components/SlideNavigation";
 import { FeatureCard } from "@/components/FeatureCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Button } from "@/components/ui/button";
@@ -22,24 +20,10 @@ import nccEmblem from "@/assets/ncc-emblem.jpg";
 import collegeLogo from "@/assets/college-logo.jpg";
 
 const Index = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 6;
-
-  const nextSlide = () => {
-    if (currentSlide < totalSlides - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const previousSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
-
-  const slides = [
-    // Slide 1: Title Slide
-    <PresentationSlide key={0} background="gradient">
+  return (
+    <div className="space-y-0">
+      {/* Slide 1: Title Slide */}
+      <PresentationSlide background="gradient" className="animate-fade-in">
       <div className="text-center text-white">
         {/* Header with logos */}
         <div className="flex justify-between items-center mb-8">
@@ -97,10 +81,10 @@ const Index = () => {
           </Badge>
         </div>
       </div>
-    </PresentationSlide>,
+      </PresentationSlide>
 
-    // Slide 2: Problem Statement
-    <PresentationSlide key={1} background="subtle">
+      {/* Slide 2: Problem Statement */}
+      <PresentationSlide background="subtle" className="animate-fade-in">
       <div className="text-center">
         <div className="flex justify-center mb-8">
           <div className="bg-emergency/10 rounded-full p-6">
@@ -136,10 +120,10 @@ const Index = () => {
           creates vulnerability and limits women's participation in education and social activities.
         </p>
       </div>
-    </PresentationSlide>,
+      </PresentationSlide>
 
-    // Slide 3: Solution Overview & App Description
-    <PresentationSlide key={2} background="white">
+      {/* Slide 3: Solution Overview & App Description */}
+      <PresentationSlide background="white" className="animate-fade-in">
       <div className="text-center">
         <h1 className="text-5xl font-bold mb-8">Raksha Bandhan - Suraksha App</h1>
         
@@ -183,10 +167,10 @@ const Index = () => {
           />
         </div>
       </div>
-    </PresentationSlide>,
+      </PresentationSlide>
 
-    // Slide 4: Key Features
-    <PresentationSlide key={3} background="subtle">
+      {/* Slide 4: Key Features */}
+      <PresentationSlide background="subtle" className="animate-fade-in">
       <div>
         <h1 className="text-5xl font-bold text-center mb-12">Key Features</h1>
         <div className="grid md:grid-cols-2 gap-8">
@@ -267,10 +251,10 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </PresentationSlide>,
+      </PresentationSlide>
 
-    // Slide 5: Implementation & Cost
-    <PresentationSlide key={4} background="white">
+      {/* Slide 5: Implementation & Cost */}
+      <PresentationSlide background="white" className="animate-fade-in">
       <div className="text-center">
         <h1 className="text-5xl font-bold mb-8">Implementation & Cost</h1>
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -348,10 +332,10 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </PresentationSlide>,
+      </PresentationSlide>
 
-    // Slide 6: Future Scope
-    <PresentationSlide key={5} background="gradient">
+      {/* Slide 6: Future Scope */}
+      <PresentationSlide background="gradient" className="animate-fade-in">
       <div className="text-center text-white">
         <h1 className="text-5xl font-bold mb-8">Future Scope</h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
@@ -394,18 +378,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </PresentationSlide>
-  ];
-
-  return (
-    <div className="relative">
-      {slides[currentSlide]}
-      <SlideNavigation
-        currentSlide={currentSlide}
-        totalSlides={totalSlides}
-        onPrevious={previousSlide}
-        onNext={nextSlide}
-      />
+      </PresentationSlide>
     </div>
   );
 };
